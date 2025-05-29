@@ -11,3 +11,19 @@ jobs:
         repository: tomeichlersmith/ldmx-ci-data-testbench
         path: ci-data
     - run: find . ! -path '*.git/**' -type f -print -exec cat {} ';'
+  write:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        repository: tomeichlersmith/ldmx-ci-data-testbench
+        path: ci-data
+    - run: find . ! -path '*.git/**' -type f -print -exec cat {} ';'
+    - run: echo "v0.0.1" > ci-data/label
+    - run: |
+          git config --global user.name ci-data-update-bot
+          git config --global user.email ci-data-update-bot@users.noreply.github.com
+          cd ci-data
+          git add .
+          git commit -m "CI Data Update" || exit 0
+          git push -fu origin main
