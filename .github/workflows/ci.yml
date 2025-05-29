@@ -9,4 +9,5 @@ jobs:
     - uses: actions/checkout@v4
       with:
         repository: tomeichlersmith/ldmx-ci-data-testbench
-    - run: find . -type f -print -exec cat {} ';'
+        path: ci-data
+    - run: find . ! -path '*.git/**' -type f -print -exec cat {} ';'
