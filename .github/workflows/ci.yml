@@ -18,6 +18,7 @@ jobs:
       with:
         repository: tomeichlersmith/ldmx-ci-data-testbench
         path: ci-data
+        token: ${{ secrets.PAT }}
     - run: find . ! -path '*.git/**' -type f -print -exec cat {} ';'
     - run: echo "v0.0.1" > ci-data/label
     - run: |
