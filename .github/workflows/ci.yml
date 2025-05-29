@@ -5,6 +5,7 @@ on:
 jobs:
   read:
     runs-on: ubuntu-latest
+    steps:
     - uses: actions/checkout@v4
       repository: tomeichlersmith/ldmx-ci-data-testbench
     - run: find . -type f -print -exec cat {} ';'
