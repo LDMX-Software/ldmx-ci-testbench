@@ -1,0 +1,10 @@
+name: CI
+on:
+  push
+
+jobs:
+  read:
+    runs-on: ubuntu-latest
+    - uses: actions/checkout@v4
+      repository: tomeichlersmith/ldmx-ci-data-testbench
+    - run: find . -type f -print -exec cat {} ';'
