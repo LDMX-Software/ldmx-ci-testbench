@@ -23,7 +23,6 @@ jobs:
         token: ${{ secrets.PAT }}
     - run: find . ! -path '*.git/**' -type f -print -exec cat {} ';'
     - run: |
-        git describe --tags
         echo ${GITHUB_SHA}
         echo ${GITHUB_REF}
         echo ${GITHUB_REF##refs/tags/}
