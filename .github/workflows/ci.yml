@@ -20,11 +20,11 @@ jobs:
         path: ci-data
         token: ${{ secrets.PAT }}
     - run: find . ! -path '*.git/**' -type f -print -exec cat {} ';'
-    - run: echo "v0.0.2" > ci-data/label
+    - run: echo "v0.0.3" > ci-data/label
     - run: |
           git config --global user.name ci-data-update-bot
           git config --global user.email ci-data-update-bot@users.noreply.github.com
           cd ci-data
           git add .
-          git commit --amend --no-edit || exit 0
+          git commit --amend -m "ci data update" || exit 0
           git push -fu origin main
