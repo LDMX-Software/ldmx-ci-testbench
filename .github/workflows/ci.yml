@@ -1,7 +1,6 @@
 name: CI
 on:
   push:
-    branches:
   release:
     types: [released]
 
@@ -16,6 +15,7 @@ jobs:
     - run: find . ! -path '*.git/**' -type f -print -exec cat {} ';'
   write:
     runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'release' }}
     steps:
     - uses: actions/checkout@v4
       with:
