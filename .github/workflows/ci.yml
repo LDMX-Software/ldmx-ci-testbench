@@ -10,7 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
       with:
-        repository: tomeichlersmith/ldmx-ci-data-testbench
+        repository: LDMX-Software/ldmx-ci-data-testbench
         path: ci-data
     - run: find . ! -path '*.git/**' -type f -print -exec cat {} ';'
   write:
@@ -19,7 +19,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
       with:
-        repository: tomeichlersmith/ldmx-ci-data-testbench
+        repository: LDMX-Software/ldmx-ci-data-testbench
         path: ci-data
         token: ${{ secrets.PAT }}
     - run: find . ! -path '*.git/**' -type f -print -exec cat {} ';'
