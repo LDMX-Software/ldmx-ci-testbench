@@ -25,7 +25,6 @@ jobs:
     - run: find . ! -path '*.git/**' -type f -print -exec cat {} ';'
     - name: update ci-data files
       run: echo ${GITHUB_REF##refs/tags/} > ci-data/label
-      shell: bash
     - name: push updated ci-data files
       run: |
           git config --global user.name ci-data-update-bot
